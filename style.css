@@ -47,4 +47,11 @@ h1 span {
     padding:15px;
     border: none;
     border-bottom: 1px solid #333;
+    box-shadow:0 5px 5px rgba(0,0,0,0.3);
+    border-radius:5px;
+}
+
+.inputs-container input:focus {
+    outline: none;
+    outline: 1px solid #222222;
 }
