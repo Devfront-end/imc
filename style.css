@@ -91,6 +91,23 @@ form button:hover {
         font: size 20px;
     }
 
+.container span {
+  color:black;
+}
+
+.my-button {
+  background-color: #f2b527; /* Set the default background color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.my-button:hover {
+  background-color: turquoise; /* Set the hover background color */
+}
+
 @media(max-width: 800px) {
     .container {
         max-width: 600px;
