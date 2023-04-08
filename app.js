@@ -4,7 +4,7 @@ const BMIData = [
     { name: "surpoids", color: "lightcoral", range: [25, 30] },
     { name: "obédisté modérée", color: "orange", range: [30, 35] },
     { name: "obésité sévère", color: "crimson", range: [35, 40] },
-    { name: "obésité morbide", color: "purple", range: [40] },
+    { name: "obésité morbide", color: "purple", range: 40 },
 ];
 
 const form = document.querySelector("form")
@@ -13,8 +13,7 @@ form.addEventListener("submit", handlefORM)
 
 function handlefORM(e) {
     e.preventDefault()
-   
-    calculateBMI()
+    calculateBMI();
 }
 
 const inputs = document.querySelectorAll("input")
@@ -23,13 +22,12 @@ function calculateBMI() {
     const height = inputs[0].value;
     const weight = inputs[1].value;
 
-    if(!height ||weight || height <= 0 || weight <= 0){
+    if(!height ||!weight || height <= 0 || weight <= 0){
         handleError()
         return;
     }
-    const BMI = (Weight / Math.pow(height / 100, 2)).toFixed(1)
-    console.log(BMI); 
-    showResult(BMI)
+    const BMI = (weight / Math.pow(height / 100, 2)).toFixed(1) 
+    showResult(BMI);
 }
 
 const displayBMI = document.querySelector(".bmi-value");
@@ -37,13 +35,17 @@ const result = document.querySelector(".result");
 
 function handleError() {
     displayBMI.textContent = "Wops";
-    result.textContent = "Remplissez correctement les inputs";
+    displayBMI.style.color = "inherit";
+    result.textContent = "Remplissez correctement les inputs.";
 }
 
 function showResult(BMI) {
     const rank = BMIData.find(data => {
-       if(BMI >= data.range[0] && BMI < data.range[1]
-        return data;
+       if(BMI >= data.range[0] && BMI < data.range[1])return data;
+       else if(typeof data.range === "number" && BMI >= data.range[0]) return data
     })
+   displayBMI.textContent = BMI;
+   displayBMI.style.color = `${rank.color}`
+   result.textContent = `resultat : ${rank.name}`
 }
 

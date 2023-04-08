@@ -1,3 +1,5 @@
+/*Reset : permet de remettre les valeurs à zéro (des valeurs de navigateur de base).
+box-sizing permet de prendre en compte le padding dans le calcul des largeurs et des hauteurs*/
 *,
 ::before,
 ::after {
@@ -8,7 +10,7 @@
 
 body {
     min-height: 100vh;
-    font-family: Lato, Arial, Helvetica, sans-serif;
+    font-family: Lato, Helvetica, sans-serif;
     background: linear-gradient(to right, #36d1dc, #5b86e5);
     padding: clamp(20px, 5vw, 50px) 10px, 10px;
 }
@@ -20,7 +22,7 @@ body {
     padding: 25px;
     margin: 0 auto;
     border-radius:5px;
-    box-shadow:0 4px 5 rgba(0,0,0,0.3);
+    box-shadow:0 4px 5px rgba(0,0,0,0.3);
 }
 h1 {
     font-family: Raleway, sans-serif;
@@ -52,7 +54,6 @@ h1 span {
 }
 
 .inputs-container input:focus {
-    outline: none;
     outline: 1px solid #222222;
 }
 
@@ -84,12 +85,14 @@ form button:hover {
 .bmi-value {
     font-size: 45px;
     margin-bottom: 5px;
+    font-weight: bolder;
 }
     
 .result {
         font-family: Raleway, sans-serif;
         font: size 20px;
     }
+    
 
 .container span {
   color:black;
